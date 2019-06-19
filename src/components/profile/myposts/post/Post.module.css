@@ -1,0 +1,61 @@
+.item {
+    color: black;
+    background-color: bisque;
+    border-radius: 10px;
+    border: 2px solid black;
+}
+.item img {
+    width: 115px;
+    height: 115px;
+    border-radius: 65px;
+}
+.item span img {
+    width: 35px;
+    height: 35px;
+}
+
+.user_block {
+    display: flex;
+    flex-direction: row;
+}
+.user_photo{
+margin: 10px 10px 10px 10px;
+}
+.user_message{
+    margin: 10px 10px 10px 10px;
+    display: flex;
+    flex-direction: column;
+}
+.user_name a{
+    text-decoration: none;
+}
+.message_date {
+    font-size: 0.8em;
+    color: gray;
+}
+.message_text {
+    margin-top: 10px;
+}
+
+
+.bottom_bar {
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+}
+.bottom_bar div{
+    margin-right: 15px;
+}
+.bottom_bar div:hover{
+   opacity: 0.5;
+}
+.like span {
+    margin-right: 5px;
+    cursor: pointer;
+}
+.comment {
+
+}
+repost {
+
+}

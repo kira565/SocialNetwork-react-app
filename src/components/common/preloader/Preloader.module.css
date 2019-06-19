@@ -1,0 +1,9 @@
+.preloader_gif {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+}
+.preloader_gif img{
+    height: 150px;
+    width: 150px;
+}

@@ -1,0 +1,17 @@
+.nav {
+    grid-area: n;
+    background-color: forestgreen;
+    padding-left: 25px;
+    font-size: 30px;
+}
+
+.item a:active,
+.item a:hover,
+.item a {
+    color: white;
+    text-decoration: none;
+}
+.item a.activeLink {
+    color: black;
+    text-decoration: none;
+}

@@ -1,0 +1,26 @@
+.dialog {
+    margin-bottom: 35px;
+}
+.content {
+    margin-bottom: 25px;
+}
+
+.dialog a:active,
+.dialog a:hover,
+.dialog a {
+    text-decoration: none;
+}
+.dialog a.activeLink {
+    color: darkred;
+
+}
+.dialogs, .activedialog {
+    margin-top: 35px;
+    margin-left: 35px;
+}
+.addmsg {
+    margin-top: 50px;
+}
+.msgbtn {
+    margin-top: 20px;
+}
