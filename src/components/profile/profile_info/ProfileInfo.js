@@ -5,6 +5,8 @@ import React from 'react'
 import s from './ProfileInfo.module.css'
 import wallpaperImg from '../../../etc/img/wallpaperField.jpg'
 import Preloader from "../../common/preloader/Preloader";
+import noavatar from '../../../etc/img/noavatar.png'
+import ProfileStatus from "./profile_status/ProfileStatus";
 
 
 const ProfileInfo = (props) => {
@@ -23,7 +25,11 @@ const ProfileInfo = (props) => {
                     <div className='col-sm-5'>
                         <div className={s.user_photo_container}>
                             <div className={s.user_photo}>
-                                <img src={props.profile.photos.large} alt='photo'/>
+                                {
+                                    props.profile.photos.large !== null
+                                        ? <img src={props.profile.photos.large} alt='photo'/>
+                                        : <img src={noavatar} alt='photo'/>
+                                }
                             </div>
                         </div>
                     </div>
@@ -31,7 +37,7 @@ const ProfileInfo = (props) => {
                         <div className={s.user_description}>
                             <div className={s.user_container}>
                                 <div className={s.user_name}><h3>{props.profile.fullName}</h3></div>
-                                <div className={s.user_status}>love react</div>
+                                <div className={s.user_status}><ProfileStatus status={'love react'}/></div>
                             </div>
                             <hr className="hr-three-color"/>
                             <div className={s.user_container}>

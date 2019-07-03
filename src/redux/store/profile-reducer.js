@@ -1,3 +1,5 @@
+import {profileAPI} from "../../api/api";
+
 /**
  * Created by Kira on 29.05.2019.
  */
@@ -45,3 +47,14 @@ export const updatePostText = (postText) => ({type: UPDATE_POST, postText});
 export const setUsersProfile = (profile) => ({type: SET_USERS_PROFILE, profile});
 
 export default profileReducer
+
+//redux-thunk
+
+export const getProfile = (userId) => {
+    return (dispatch) => {
+        profileAPI.getUserProfile(userId)
+            .then(response => {
+                dispatch(setUsersProfile(response.data));
+            });
+    }
+};

@@ -4,7 +4,6 @@
 import React from 'react'
 import s from './Dialogs.module.css'
 import 'bootstrap/dist/css/bootstrap.css'
-import {NavLink} from 'react-router-dom'
 import Message from './message_item/Messageitem'
 import Dialog from './dialog_item/Dialogitem'
 

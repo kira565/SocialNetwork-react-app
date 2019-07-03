@@ -1,3 +1,5 @@
+import {headerAPI} from "../../api/api";
+
 /**
  * Created by Kira on 04.06.2019.
  */
@@ -30,3 +32,16 @@ export const setUserAuthData = (userId, userLogin, userEmail) => ({type: SET_USE
 export default authReducer
 
 
+export const getUserAuthData = () => {
+  return (dispatch) => {
+      headerAPI.getUserAuthData()
+          .then(data => {
+              if (data.resultCode === 0){
+                  let id = data.data.id;
+                  let login = data.data.login;
+                  let email = data.data.email;
+                  dispatch(setUserAuthData(id, login, email));
+              }
+          });
+  }
+};

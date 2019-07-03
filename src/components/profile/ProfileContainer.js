@@ -4,9 +4,11 @@
 import React from "react";
 import Profile from "./Profile";
 import {connect} from 'react-redux'
-import {setUsersProfile} from "../../redux/store/profile-reducer";
+import {getProfile} from "../../redux/store/profile-reducer";
 import {withRouter} from "react-router-dom";
-import {profileAPI} from "../../api/api";
+import {withAuthHoc} from "../../hoc/withAuthHoc";
+import {compose} from "redux";
+
 
 
 
@@ -21,10 +23,7 @@ class ProfileContainer extends React.Component {
     componentDidMount(){
         let userId = this.props.match.params.userId;
         if (!userId) userId = this.props.userId;
-        profileAPI.getUserProfile(userId)
-            .then(data => {
-                this.props.setUsersProfile(data);
-            });
+        this.props.getProfile(userId)
     }
 
     render() {
@@ -32,5 +31,8 @@ class ProfileContainer extends React.Component {
     }
 }
 
-let UrlProfileContainer = withRouter(ProfileContainer);
-export default connect(MapStateToProps, {setUsersProfile})(UrlProfileContainer)
+export default compose(
+    connect(MapStateToProps, {getProfile}),
+    withAuthHoc,
+    withRouter
+)(ProfileContainer);

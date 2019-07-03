@@ -6,12 +6,14 @@ import 'bootstrap/dist/css/bootstrap.css'
 import Dialogs from './Dialogs'
 import {sendMsgActionCreator, updateMsgTextActionCreator} from "../../redux/store/dialogs-reducer";
 import {connect} from "react-redux";
+import {withAuthHoc} from "../../hoc/withAuthHoc";
+import {compose} from "redux";
 
 
 
 let mapStateToProps = (state) => {
     return {
-        dialogsPage: state.dialogsPage
+        dialogsPage: state.dialogsPage,
     }
 };
 
@@ -28,5 +30,8 @@ let mapDispatchToProps = (dispatch) => {
 };
 
 
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
-export default DialogsContainer;
+
+export default compose(
+    connect(mapStateToProps, mapDispatchToProps),
+    withAuthHoc
+)(Dialogs);

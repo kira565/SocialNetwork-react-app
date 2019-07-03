@@ -15,7 +15,6 @@ const Users = (props) => {
             {pages.map(el => {
                 return <span
                     className={props.currentPage === el && styles.selectedPage}
-
                     onClick={() => {
                         props.onPageChanged(el);
                     }}
@@ -26,7 +25,7 @@ const Users = (props) => {
             return <UserItem id={el.id} firstName={el.name} secondName={'el.secondName'}
                              status={el.status} location={'el.location'} avatar={el.photos.small}
                              followed={el.followed}
-                             onFollow={props.onFollow} onUnfollow={props.onUnfolllow} onSetUsers={props.onSetUsers}
+                             follow={props.follow} unfollow={props.unfolllow} onSetUsers={props.onSetUsers}
                              toggleFollowingProgress = {props.toggleFollowingProgress} isFollowingInProgress={props.isFollowingInProgress}
             />
         })}

@@ -2,7 +2,7 @@ import React from 'react'
 import './User-item.css'
 import userPhoto from '../../../etc/img/user_male.png'
 import NavLink from "react-router-dom/es/NavLink";
-import {usersAPI} from "../../../api/api";
+
 
 const UserItem = (props) => {
     return <div className="users-block__elem users-block__elem1">
@@ -18,27 +18,10 @@ const UserItem = (props) => {
             <div>
                 {props.followed ?
                     <button disabled={props.isFollowingInProgress.some(id => id === props.id)} type="button" className="btn btn-success active"
-                            onClick={() => {
-                                props.toggleFollowingProgress(true, props.id);
-                                usersAPI.unfollowUser(props.id)
-                                    .then(data => {
-                                        if (data.resultCode === 0) {
-                                            props.onUnfollow(props.id)
-                                        }
-                                        props.toggleFollowingProgress(false, props.id);
-                                    });
+                            onClick={() => {props.unfollow(props.id)
                             }}>Unfollow</button> :
                     <button disabled={props.isFollowingInProgress.some(id => id === props.id)} type="button" className="btn btn-success"
-                            onClick={() => {
-                                props.toggleFollowingProgress(true, props.id);
-                                usersAPI.followUser(props.id)
-                                    .then(data => {
-                                        if (data.resultCode === 0) {
-                                            props.onFollow(props.id)
-                                        }
-                                        props.toggleFollowingProgress(false, props.id);
-                                    });
-                            }}>Follow</button>
+                            onClick={() => {props.follow(props.id)}}>Follow</button>
                 }
             </div>
         </div>

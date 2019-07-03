@@ -11,4 +11,8 @@
     float: right;
     color: white;
     font-weight: bold;
+    margin: 15px 15px 15px 15px;
+}
+.loginBlock a{
+    text-decoration: none;
 }

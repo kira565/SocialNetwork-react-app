@@ -4,9 +4,8 @@
 import React from 'react';
 import Header from "./Header";
 import {connect} from 'react-redux'
-import * as axios from "axios/index";
-import {setUserAuthData} from "../../redux/store/auth-reducer";
-import {headerAPI} from "../../api/api";
+import {getUserAuthData} from "../../redux/store/auth-reducer";
+
 
 
 let MapStateToProps = (state) => ({
@@ -20,19 +19,11 @@ let MapStateToProps = (state) => ({
 
 class HeaderContainer extends React.Component{
     componentDidMount () {
-        headerAPI.getUserAuthData()
-            .then(data => {
-                if (data.resultCode === 0){
-                    let id = data.data.id;
-                    let login = data.data.login;
-                    let email = data.data.email;
-                    this.props.setUserAuthData(id, login, email);
-                }
-            });
+        this.props.getUserAuthData();
     }
 
     render(){
         return <Header {...this.props}/>
     }
 }
-   export default connect(MapStateToProps, {setUserAuthData})(HeaderContainer)
+   export default connect(MapStateToProps, {getUserAuthData})(HeaderContainer)
