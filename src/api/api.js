@@ -43,5 +43,17 @@ export const profileAPI = {
             .then(response => {
                 return response
             })
+    },
+    getUserStatus (userId) {
+        return instance.get(`profile/status/${userId}`)
+            .then(response => {
+                return response
+            })
+    },
+    inputStatus (userId) {
+        return instance.put(`profile/status/${userId}`)
+            .then(response => {
+                return response
+            })
     }
 };
