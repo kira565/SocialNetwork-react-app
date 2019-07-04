@@ -37,9 +37,13 @@ const ProfileInfo = (props) => {
                         <div className={s.user_description}>
                             <div className={s.user_container}>
                                 <div className={s.user_name}><h3>{props.profile.fullName}</h3></div>
-                                <div className={s.user_status}><ProfileStatus userId={props.userId}
-                                                                              AnotherUserId={props.AnotherUserId}
-                                                                              status={props.status}/></div>
+                                <div className={s.user_status}>
+                                    <ProfileStatus userId={props.userId}
+                                                   AnotherUserId={props.AnotherUserId}
+                                                   status={props.status}
+                                                   updateStatus={props.updateStatus}
+                                    />
+                                </div>
                             </div>
                             <hr className="hr-three-color"/>
                             <div className={s.user_container}>

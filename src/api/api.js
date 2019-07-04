@@ -50,8 +50,8 @@ export const profileAPI = {
                 return response
             })
     },
-    inputStatus (userId) {
-        return instance.put(`profile/status/${userId}`)
+    updateUserStatus (status) {
+        return instance.put(`profile/status/`, {status:status})
             .then(response => {
                 return response
             })

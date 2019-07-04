@@ -2,38 +2,41 @@ import React from 'react'
 
 class ProfileStatus extends React.Component {
     state = {
-      isEditMode: false
+        isEditMode: false,
+        status: this.props.status
     };
 
     activateEditMode = () => {
-      this.setState({
-          isEditMode: true
-      })
+        this.setState({
+            isEditMode: true
+        })
     };
     deActivateEditMode = () => {
         this.setState({
             isEditMode: false
-        })
+        });
+        this.props.updateStatus(this.state.status)
+    };
+    onStatusChange = (e) => {
+      this.setState({
+          status: e.currentTarget.value
+      })
     };
 
 
     render() {
         if (!this.props.AnotherUserId)
-        return <div>
-            {
-                this.state.isEditMode
-                    ? <div>
-                        <input onBlur={this.deActivateEditMode} autoFocus={true} value={this.props.status}/>
-                    </div>
-                    : <div>
-                        {
-                            (!this.props.status)
-                                ? <span onDoubleClick={this.activateEditMode}>write here your status</span>
-                                : <span onDoubleClick={this.activateEditMode}>{this.props.status}</span>
-                        }
-                    </div>
-            }
-        </div>
+            return <div>
+                {
+                    this.state.isEditMode
+                        ? <div>
+                            <input onChange={this.onStatusChange} onBlur={this.deActivateEditMode} autoFocus={true} value={this.state.status}/>
+                        </div>
+                        : <div>
+                            <span onDoubleClick={this.activateEditMode}>{this.props.status || 'write your status'}</span>
+                        </div>
+                }
+            </div>
         else return <div>
             {
                 (!this.props.status)
@@ -44,4 +47,4 @@ class ProfileStatus extends React.Component {
     }
 }
 
-export default  ProfileStatus;
+export default ProfileStatus;

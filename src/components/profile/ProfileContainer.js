@@ -4,7 +4,7 @@
 import React from "react";
 import Profile from "./Profile";
 import {connect} from 'react-redux'
-import {getProfile, getStatus} from "../../redux/store/profile-reducer";
+import {getProfile, getStatus, updateStatus} from "../../redux/store/profile-reducer";
 import {withRouter} from "react-router-dom";
 import {withAuthHoc} from "../../hoc/withAuthHoc";
 import {compose} from "redux";
@@ -16,12 +16,9 @@ let MapStateToProps = (state) =>({
     profile: state.profilePage.profile,
     status: state.profilePage.status,
     userId: state.userAuth.userId,
-
 });
 
-
-
-class ProfileContainer extends React.Component {
+class ProfileContainer extends React.Component{
 
     componentDidMount(){
         let userId = this.props.match.params.userId;
@@ -39,7 +36,7 @@ class ProfileContainer extends React.Component {
 }
 
 export default compose(
-    connect(MapStateToProps, {getProfile ,getStatus}),
+    connect(MapStateToProps, {getProfile ,getStatus, updateStatus}),
     withAuthHoc,
     withRouter
 )(ProfileContainer);
