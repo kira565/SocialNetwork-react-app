@@ -3,11 +3,11 @@
     grid-template-columns: 2fr 10fr;
     grid-template-areas: 'a b';
     margin-bottom: 20px;
-    border: 2px solid darkgray;
+    border: 2px solid cornflowerblue;
     border-radius: 15px;
     padding: 15px;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-    background-color: beige;
+    background-color: white;
 }
 .ava-btn-container {
     grid-area: a;

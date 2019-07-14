@@ -1,11 +1,15 @@
 .main_information {
     background-color: white;
     margin-bottom: 10px;
+    padding-bottom: 30px;
     margin-top: 10px;
     border-radius: 5px;
     -webkit-box-shadow: 3px 3px 5px 0 rgba(50, 50, 50, 0.75);
     -moz-box-shadow:    3px 3px 5px 0 rgba(50, 50, 50, 0.75);
     box-shadow:         3px 3px 5px 0 rgba(50, 50, 50, 0.75);
+}
+.user_photo_container {
+   padding-top: 20px;
 }
 .user_photo img{
     height: 250px;
@@ -20,12 +24,22 @@
 .user_status {
     font-style: italic;
 }
-.hr-three-color {
-    margin: 20px 0;
-    padding: 0;
-    height: 2px;
-    border: none;
-    border-top: 2px solid #ddd;
-    border-bottom: 2px solid #000;
-    background: orange;
+
+.header__text {
+    position: absolute;
+    top: 29px;
+    background: #fff;
+    padding: 0 10px;
+    color: darkgrey;
+    font-style: italic;
+    margin-left: -10px;
+}
+.header__line {
+    position: relative;
+    padding-top: 27px;
+    padding-right: 25px;
+}
+.user_contacts__header {
+    color: cornflowerblue;
+    margin-right: 3px;
 }
