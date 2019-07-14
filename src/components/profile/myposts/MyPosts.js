@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-redundant-roles */
 /**
  * Created by Kira on 21.05.2019.
  */
@@ -28,24 +29,19 @@ const MyPosts = (props) => {
 
     return (
         <div className={s.posts_content}>
-            <h3> My posts</h3>
-            <div className="row">
-                <div className="col-md-6">
-                    <div>
+                <div className={s.text__input}>
+                    <h4>My Posts</h4>
                         <textarea ref={newPostElem} placeholder="Write here your post..."
                                   className="form-control"
                                   rows="3"
                                   onChange={ onPostChange }
                                   value={props.newPostText}
                         />
-                    </div>
                     <div>
                         <button onClick={ onAddPost } className="btn btn-primary" role="button">ADD</button>
                     </div>
                 </div>
-
-            </div>
-            <div className="posts">
+            <div className={s.posts}>
                 {postElements}
             </div>
         </div>

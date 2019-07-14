@@ -1,8 +1,18 @@
+.dialogs {
+
+}
+
 .dialog {
-    margin-bottom: 35px;
+
 }
 .content {
     margin-bottom: 25px;
+    background-color: white;
+    border-radius: 5px;
+    -webkit-box-shadow: 3px 3px 5px 0 rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    3px 3px 5px 0 rgba(50, 50, 50, 0.75);
+    box-shadow:         3px 3px 5px 0 rgba(50, 50, 50, 0.75);
+    margin-top: 10px;
 }
 
 .dialog a:active,
@@ -16,11 +26,22 @@
 }
 .dialogs, .activedialog {
     margin-top: 35px;
-    margin-left: 35px;
+    margin-right: 35px;
 }
 .addmsg {
     margin-top: 50px;
 }
 .msgbtn {
     margin-top: 20px;
+}
+.custom__btn {
+    background-color: cornflowerblue;
+    width: 100px;
+}
+.custom__table {
+    margin: 0 25px 25px 25px;
+}
+
+table tr {
+    cursor: pointer;
 }

@@ -31,3 +31,7 @@
 .full-name a{
     text-decoration: none;
 }
+.full-name {
+    display: flex;
+    flex-direction: column;
+}

@@ -14,19 +14,33 @@ import LoginPage from "./components/login-page/login-page";
 
 const App = () => {
     return (
-        <div className="app-wrapper">
-            <HeaderContainer />
-            <Navbar />
-            <div className="app-wrapper-content">
-                <Route render={() => <DialogsContainer/> } path='/dialogs'/>
-                <Route render={() => <ProfileContainer/> } path='/profile/:userId?'/>
-                <Route render={()=> <UsersContainer/>} path={'/users'}/>
-                <Route component={Music} path={'/music'}/>
-                <Route component={News} path={'/news'}/>
-                <Route component={Settings} path={'/settings'}/>
-                <Route render={() => <LoginPage/>} path={'/login'}/>
-            </div>
-        </div>
+        <>
+            <section className="header__wrapper">
+                <div className="container">
+                    <HeaderContainer />
+                </div>
+            </section>
+            <section className="main__wrapper">
+                <div className="container main">
+                    <div className="row">
+                        <div className="col-sm-2">
+                            <Navbar />
+                        </div>
+                        <div className="col-sm-9 offset-1">
+                            <div className="app-wrapper-content">
+                                <Route render={() => <DialogsContainer/> } path='/dialogs'/>
+                                <Route render={() => <ProfileContainer/> } path='/profile/:userId?'/>
+                                <Route render={()=> <UsersContainer/>} path={'/users'}/>
+                                <Route component={Music} path={'/music'}/>
+                                <Route component={News} path={'/news'}/>
+                                <Route component={Settings} path={'/settings'}/>
+                                <Route render={() => <LoginPage/>} path={'/login'}/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </>
     );
 };
 

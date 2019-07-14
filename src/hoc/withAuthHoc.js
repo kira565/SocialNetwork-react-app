@@ -13,15 +13,13 @@ export const withAuthHoc = (Component) => {
 
     class withAuthWrapper extends React.Component {
         render(){
-            if (!this.props.isAuth) return <Redirect to={'/login'}/>
+            if (!this.props.isAuth) return <Redirect to={'/login'}/>;
             return <Component {...this.props}/>
         }
     }
 
-    let withAuthWrapperConnected = connect(mapStateToProps)(withAuthWrapper);
     // Реализован коннект внутри хока, чтоб получить isAuth здесь, а не внутри компоненты.
-
-    return withAuthWrapperConnected;
+    return connect(mapStateToProps)(withAuthWrapper);
 };
 
 

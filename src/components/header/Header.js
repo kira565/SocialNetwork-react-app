@@ -8,11 +8,17 @@ import NavLink from "react-router-dom/es/NavLink";
 
 const Header = (props) => {
     return <header className={h.header}>
-        <img alt='logo' src={logo}/>
-        <div className={h.loginBlock}>
-            { props.isAuth ? <NavLink to={'/profile'}>{props.userLogin}</NavLink>
-                : <NavLink to={'/login'}>Login</NavLink>}
+        <div className="row">
+            <div className="col-sm-3">
+                <img alt='logo' src={logo}/>
+            </div>
+            <div className="cols-sm-3 offset-6">
+                <div className={h.loginBlock}>
+                    { props.isAuth ? <NavLink to={'/profile'}>{props.userEmail}</NavLink>
+                        : <NavLink to={'/login'}>Login</NavLink>}
+                </div>
+            </div>
         </div>
     </header>;
-}
+};
    export default Header

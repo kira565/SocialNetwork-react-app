@@ -1,0 +1,22 @@
+.login__form {
+    background-color: white;
+    border-radius: 5px;
+    -webkit-box-shadow: 3px 3px 5px 0 rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    3px 3px 5px 0 rgba(50, 50, 50, 0.75);
+    box-shadow:         3px 3px 5px 0 rgba(50, 50, 50, 0.75);
+
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-top: 10px;
+}
+
+.custom__btn{
+    background-color: cornflowerblue;
+    width: 100px;
+}
+
+form div {
+    margin-bottom: 10px;
+}

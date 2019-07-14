@@ -26,7 +26,13 @@ const UserItem = (props) => {
             </div>
         </div>
         <div className="users-container users-container__elem1">
-            <div className="row">
+            <div className="full-name">
+                <NavLink to={'/profile/' + props.id}>
+                    <span className="font-weight-bold">{props.firstName}</span>
+                </NavLink>
+                <div className="status">{props.status}</div>
+            </div>
+          {/*  <div className="row">
                 <div className="col-md-4">
                     <div className="full-name">
                         <NavLink to={'/profile/' + props.id}>
@@ -42,7 +48,7 @@ const UserItem = (props) => {
                         <div className="city">{props.location.city}</div>
                     </div>
                 </div>
-            </div>
+            </div>*/}
         </div>
     </div>
 };

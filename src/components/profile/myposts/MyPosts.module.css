@@ -1,8 +1,30 @@
 .posts_content {
-    margin-left: 50px;
-    margin-right: 50px;
 }
+
 .posts_content div {
     margin-bottom: 15px;
 }
 
+.text__input {
+    background-color: white;
+    border-radius: 5px;
+    -webkit-box-shadow: 3px 3px 5px 0 rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    3px 3px 5px 0 rgba(50, 50, 50, 0.75);
+    box-shadow:         3px 3px 5px 0 rgba(50, 50, 50, 0.75);
+    padding: 15px 25px 15px 25px;
+}
+
+.text__input button {
+    margin-top: 15px;
+    background-color: cornflowerblue;
+    width: 100px;
+}
+
+.posts {
+    background-color: white;
+    padding: 15px 0 15px 0;
+    border-radius: 5px;
+    -webkit-box-shadow: 3px 3px 5px 0 rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    3px 3px 5px 0 rgba(50, 50, 50, 0.75);
+    box-shadow:         3px 3px 5px 0 rgba(50, 50, 50, 0.75);
+}

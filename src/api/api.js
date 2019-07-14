@@ -29,13 +29,26 @@ export const usersAPI = {
     }
 
 };
-export const headerAPI = {
+export const authAPI = {
     getUserAuthData () {
        return instance.get(`auth/me`)
             .then(response => {
                 return response.data
             })
+    },
+    loginUser (email, password, rememberMe ) {
+     return instance.post(`auth/login`, {email:email, password:password, rememberMe:rememberMe })
+         .then(response => {
+             return response.data
+         })
+    },
+    getCapcha () {
+        return instance.get(`security/get-captcha-url`)
+            .then(response =>{
+                return response.data
+            })
     }
+
 };
 export const profileAPI = {
     getUserProfile (userId) {

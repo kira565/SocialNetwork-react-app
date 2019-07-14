@@ -3,6 +3,7 @@
     background-color: bisque;
     border-radius: 10px;
     border: 2px solid black;
+    margin: 0 30px 0 30px;
 }
 .item img {
     width: 115px;
@@ -52,10 +53,4 @@ margin: 10px 10px 10px 10px;
 .like span {
     margin-right: 5px;
     cursor: pointer;
-}
-.comment {
-
-}
-repost {
-
 }

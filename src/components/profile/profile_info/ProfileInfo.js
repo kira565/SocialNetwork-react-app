@@ -3,7 +3,6 @@
  */
 import React from 'react'
 import s from './ProfileInfo.module.css'
-import wallpaperImg from '../../../etc/img/wallpaperField.jpg'
 import Preloader from "../../common/preloader/Preloader";
 import noavatar from '../../../etc/img/noavatar.png'
 import ProfileStatus from "./profile_status/ProfileStatus";
@@ -15,11 +14,6 @@ const ProfileInfo = (props) => {
     }
 
     return (
-        <div>
-            <div>
-                <img className={s.headerimg}
-                    src={wallpaperImg}/>
-            </div>
             <div className={s.main_information}>
                 <div className='row'>
                     <div className='col-sm-5'>
@@ -27,8 +21,8 @@ const ProfileInfo = (props) => {
                             <div className={s.user_photo}>
                                 {
                                     props.profile.photos.large !== null
-                                        ? <img src={props.profile.photos.large} alt='photo'/>
-                                        : <img src={noavatar} alt='photo'/>
+                                        ? <img src={props.profile.photos.large} alt='user_av'/>
+                                        : <img src={noavatar} alt='user_av'/>
                                 }
                             </div>
                         </div>
@@ -48,7 +42,8 @@ const ProfileInfo = (props) => {
                             <hr className="hr-three-color"/>
                             <div className={s.user_container}>
                                 <div className={s.aboutMe}>About me: {props.profile.aboutMe}</div>
-                                <div className={s.lookingForAJobDescription}>Looking for job: {props.profile.lookingForAJobDescription}</div>
+                                <div className={s.lookingForAJobDescription}>Looking for
+                                    job: {props.profile.lookingForAJobDescription}</div>
                             </div>
                             <hr className="hr-three-color"/>
                             <div className={s.user_container}>
@@ -61,12 +56,10 @@ const ProfileInfo = (props) => {
                                 <div className={s.github}>{props.profile.contacts.github}</div>
                                 <div className={s.mainLink}>{props.profile.contacts.mainLink}</div>
                             </div>
-                            <hr className="hr-three-color"/>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
     )
 };
 

@@ -11,6 +11,14 @@ const Users = (props) => {
     }
 
     return <div className={styles["users-block"]}>
+        {props.usersPage.userData.map((el) => {
+            return <UserItem id={el.id} firstName={el.name} secondName={'el.secondName'}
+                             status={el.status} location={'el.location'} avatar={el.photos.small}
+                             followed={el.followed}
+                             follow={props.follow} unfollow={props.unfolllow} onSetUsers={props.onSetUsers}
+                             toggleFollowingProgress = {props.toggleFollowingProgress} isFollowingInProgress={props.isFollowingInProgress}
+            />
+        })}
         <div className={styles.pages}>
             {pages.map(el => {
                 return <span
@@ -21,14 +29,6 @@ const Users = (props) => {
                 >{`${el} `}</span>
             })}
         </div>
-        {props.usersPage.userData.map((el) => {
-            return <UserItem id={el.id} firstName={el.name} secondName={'el.secondName'}
-                             status={el.status} location={'el.location'} avatar={el.photos.small}
-                             followed={el.followed}
-                             follow={props.follow} unfollow={props.unfolllow} onSetUsers={props.onSetUsers}
-                             toggleFollowingProgress = {props.toggleFollowingProgress} isFollowingInProgress={props.isFollowingInProgress}
-            />
-        })}
     </div>
 };
 

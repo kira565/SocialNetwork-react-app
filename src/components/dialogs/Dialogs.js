@@ -35,12 +35,19 @@ const Dialogs = (props) => {
     return (
         <div className={s.content}>
             <div className="row">
-                <div className="col-md-4">
-                    <div className={s.dialogs}>
+                <div className="col-sm-4">
+                    <table className={`table table-hover ${s.custom__table}`}>
+                        <thred>
+                            <tr>
+                                <th scope="col">Name</th>
+                            </tr>
+                        </thred>
+                        <tbody>
                         {dialogsElemets}
-                    </div>
+                        </tbody>
+                    </table>
                 </div>
-                <div className="col-md-8">
+                <div className="col-sm-6 offset-2">
                     <div className={s.activedialog}>
                         <div className={s.messages}>
                             {messagesElements}
@@ -60,10 +67,9 @@ const Dialogs = (props) => {
                                     <div className={s.msgbtn}>
                                         <button onClick={onSendMsg}
                                                 type="button"
-                                                className="btn btn-primary btn-sm">Send</button>
+                                                className={`btn btn-primary ${s.custom__btn}`}>Send</button>
                                     </div>
                                 </div>
-                                <div className="col"></div>
                             </div>
                         </div>
                     </div>
