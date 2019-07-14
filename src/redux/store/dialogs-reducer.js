@@ -2,7 +2,7 @@
  * Created by Kira on 29.05.2019.
  */
 const SEND_MSG = 'SEND-MSG';
-const UPDATE_MSG = 'UPDATE-MSG-POST';
+export const MSG_SEND_SUCCESSFUL_RESET = 'MSG_SEND_SUCCESSFUL_RESET';
 
 let initialState = {
     userData: [
@@ -21,36 +21,22 @@ let initialState = {
         {id: 5, text: 'react is awesome'},
         {id: 6, text: 'did u saw YAK 2019?'},
     ],
-    newMsgText: ''
 };
 
 const dialogsReducer = (state = initialState, action) => {
 
-    if (action.type === SEND_MSG) {
-        return {
-            ...state,
-            newMsgText: '',
-            messageData: [...state.messageData, {id: 9, text: state.newMsgText}] // аналогия push()
-        };
+    switch (action.type) {
+        case SEND_MSG: {
+            return{
+                ...state,
+                messageData: [...state.messageData, {id: 9, text: action.newMsgText}] // аналогия push()
+            }
+        }
+        default: return state
     }
-    else if (action.type === UPDATE_MSG) {
-        return {
-            ...state,
-            newMsgText: action.msgText
-        };
-    }
-    return state
 };
 export default dialogsReducer
 
-export const sendMsgActionCreator = () => {
-    return {
-        type: SEND_MSG
-    }
-};
-export const updateMsgTextActionCreator = (msgText) => {
-    return {
-        type: UPDATE_MSG,
-        msgText: msgText
-    }
-};
+export const sendMsg = (newMsgText) => ({type: SEND_MSG, newMsgText});
+export const msgSendSuccessfulReset = () => ({type: MSG_SEND_SUCCESSFUL_RESET});
+

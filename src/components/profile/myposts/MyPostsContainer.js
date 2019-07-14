@@ -3,21 +3,26 @@
  */
 import React from "react";
 import './MyPosts.module.css'
-import MyPosts from './MyPosts'
-import {updatePostText, addPost} from "../../../redux/store/profile-reducer";
 import {connect} from "react-redux";
+import {addPost, postAddedSuccessful} from "../../../redux/store/profile-reducer";
+import MyPosts from "./MyPosts";
+
 
 
 
 let mapStateToProps = (state) => {   // props
     return {
         postData: state.profilePage.postData,
-        newPostText: state.profilePage.newPostText
     }
 };
+class MyPostsContainer extends React.Component {
+    handleSubmit(formData) {
+       this.props.addPost(formData.newPostText);
+       //reset
+    }
+    render(){
+        return <MyPosts postAddedSuccessful={this.props.postAddedSuccessful} onSubmit = {this.handleSubmit} {...this.props}/>
+    }
+}
 
-let mapDispatchToProps = {addPost, updatePostText};
-
-
-const SuperMyPostContainer = connect(mapStateToProps, mapDispatchToProps)(MyPosts);
-export default SuperMyPostContainer
+export default connect(mapStateToProps, {addPost, postAddedSuccessful})(MyPostsContainer);

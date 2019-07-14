@@ -1,12 +1,11 @@
 import {profileAPI} from "../../api/api";
-
 /**
  * Created by Kira on 29.05.2019.
  */
 const ADD_POST = 'ADD-POST';
-const UPDATE_POST = 'UPDATE-POST-TEXT';
 const SET_USERS_PROFILE = 'SET_USERS_PROFILE';
 const SET_USER_STATUS = 'SET_USER_STATUS';
+export const POST_ADDED_SUCCESSFUL_RESET = 'POST_ADDED_SUCCESSFUL_RESET';
 
 let initialState = {
     profile: null,
@@ -19,7 +18,6 @@ let initialState = {
         {id: 5, message: 'yo?', like_count: 32},
         {id: 6, message: 'answer?', like_count: 34}
     ],
-    newPostText: ''
 };
 
 const profileReducer = (state = initialState, action) => {// Initial default value
@@ -27,13 +25,7 @@ const profileReducer = (state = initialState, action) => {// Initial default val
         case ADD_POST:
             return {
                 ...state,
-                postData: [...state.postData, {id: 9, message: state.newPostText, like_count: 0}],
-                newPostText: ''
-            };
-        case UPDATE_POST:
-            return {
-                ...state,
-                newPostText: action.postText
+                postData: [ {id: 9, message: action.post, like_count: 0}, ...state.postData],
             };
         case SET_USERS_PROFILE:
             return {
@@ -49,11 +41,10 @@ const profileReducer = (state = initialState, action) => {// Initial default val
             return state;
     }
 };
-export const addPost = () => ({type: ADD_POST});
-export const updatePostText = (postText) => ({type: UPDATE_POST, postText});
+export const addPost = (post) => ({type: ADD_POST, post});
 export const setUsersProfile = (profile) => ({type: SET_USERS_PROFILE, profile});
 export const setUserStatus = (status) => ({type: SET_USER_STATUS, status});
-
+export const postAddedSuccessful = () => ({type: POST_ADDED_SUCCESSFUL_RESET});
 export default profileReducer
 
 //redux-thunk
@@ -84,6 +75,5 @@ export const updateStatus = (status) => {
                   dispatch(setUserStatus(status))
               }
           })
-
   }
 };

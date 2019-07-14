@@ -1,7 +1,7 @@
 import React from 'react'
 import './User-item.css'
 import userPhoto from '../../../etc/img/user_male.png'
-import NavLink from "react-router-dom/es/NavLink";
+import {NavLink} from "react-router-dom";
 
 
 const UserItem = (props) => {

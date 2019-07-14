@@ -6,7 +6,28 @@ import s from './Dialogs.module.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import Message from './message_item/Messageitem'
 import Dialog from './dialog_item/Dialogitem'
+import {Field, reduxForm} from 'redux-form'
 
+const dialogElement = (props) => {
+    return <form onSubmit={props.handleSubmit}>
+        <div>
+            <Field
+                      className="form-control"
+                      name={'newMsgText'}
+                      component={'textarea'}
+                      rows="2"
+                      placeholder="Enter your message here.."
+            />
+        </div>
+        <div className={s.msgbtn}>
+            <button className={`btn btn-primary ${s.custom__btn}`}>Send</button>
+        </div>
+    </form>
+};
+
+const ReduxDialogElement = reduxForm({
+    form: 'AddNewMessageForm'
+})(dialogElement);
 
 const Dialogs = (props) => {
 
@@ -16,21 +37,15 @@ const Dialogs = (props) => {
         return <Dialog user_name={el.name} key={el.id} user_id={el.id}/>
     });
     let messagesElements = state.messageData.map((el) => {
-        return <Message message_text={el.text} key={el.id} />
+        return <Message message_text={el.text} key={el.id}/>
     });
-    let newMsgText = state.newMsgText;
-
-    let newMessage = React.createRef();
 
 
-    let onSendMsg = () => {
-      props.sendMsg()
+    let onSendMsg = (text) => {
+        props.sendMsg(text.newMsgText);
+        props.msgSendSuccessfulReset()
     };
 
-    let onUpdateMsg = (e) => {
-        let msgText = e.target.value;
-        props.updateMsg(msgText)
-    };
 
     return (
         <div className={s.content}>
@@ -55,20 +70,7 @@ const Dialogs = (props) => {
                         <div className={s.addmsg}>
                             <div className="row">
                                 <div className="col">
-                                    <div>
-                                        <textarea ref={newMessage}
-                                                  className="form-control"
-                                                  rows="2"
-                                                  onChange={onUpdateMsg}
-                                                  value={newMsgText}
-                                                  placeholder="Enter your message here.."
-                                        />
-                                    </div>
-                                    <div className={s.msgbtn}>
-                                        <button onClick={onSendMsg}
-                                                type="button"
-                                                className={`btn btn-primary ${s.custom__btn}`}>Send</button>
-                                    </div>
+                                    <ReduxDialogElement onSubmit={onSendMsg}/>
                                 </div>
                             </div>
                         </div>

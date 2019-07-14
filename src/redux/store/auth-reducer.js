@@ -22,7 +22,7 @@ const authReducer = (state = initialState, action) => {// Initial default value
                 userId: action.userId,
                 userLogin: action.userLogin,
                 userEmail: action.userEmail,
-                isAuth: true,
+                isAuth: action.isAuth,
             };
         case LOGIN_SET_ID: {
             return {
@@ -38,7 +38,7 @@ const authReducer = (state = initialState, action) => {// Initial default value
     }
 };
 
-export const setUserAuthData = (userId, userLogin, userEmail) => ({type: SET_USER_DATA_ILE, userId, userLogin, userEmail});
+export const setUserAuthData = (userId, userLogin, userEmail, isAuth) => ({type: SET_USER_DATA_ILE, userId, userLogin, userEmail, isAuth});
 export const loginSetId = (userId, email) => ({type: LOGIN_SET_ID, userId, email});
 export default authReducer
 
@@ -51,7 +51,7 @@ export const getUserAuthData = () => {
                   let id = data.data.id;
                   let login = data.data.login;
                   let email = data.data.email;
-                  dispatch(setUserAuthData(id, login, email));
+                  dispatch(setUserAuthData(id, login, email, true));
               }
           });
   }
@@ -70,6 +70,17 @@ export const loginUser = (email, password, rememberMe) => {
                 }
                 if (data.resultCode === 1) {
                     alert('invalid request')
+                }
+            })
+    }
+};
+
+export const logoutUser = () => {
+    return (dispatch) => {
+        authAPI.logoutUser()
+            .then(data => {
+                if (data.resultCode === 0) {
+                    dispatch(setUserAuthData(null, null, null, false))
                 }
             })
     }

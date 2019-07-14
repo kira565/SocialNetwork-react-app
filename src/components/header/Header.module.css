@@ -1,4 +1,8 @@
 .header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 }
 .header img {
     width: 30px;
@@ -6,13 +10,26 @@
     margin-top: 7px;
     margin-bottom: 7px;
 }
-.loginBlock {
-    text-align: right;
+.login__block {
     color: white;
     font-weight: bold;
     margin: 15px 15px 15px 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+
 }
-.loginBlock a{
+.login__block a{
     text-decoration: none;
     color: white;
+}
+
+.login__block button {
+    background-color: crimson;
+    width: 100px;
+    margin-left: 15px;
+}
+.login__block button:hover {
+    background-color: forestgreen;
 }

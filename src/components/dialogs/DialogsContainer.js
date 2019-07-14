@@ -4,7 +4,7 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
 import Dialogs from './Dialogs'
-import {sendMsgActionCreator, updateMsgTextActionCreator} from "../../redux/store/dialogs-reducer";
+import {msgSendSuccessfulReset, sendMsg} from "../../redux/store/dialogs-reducer";
 import {connect} from "react-redux";
 import {withAuthHoc} from "../../hoc/withAuthHoc";
 import {compose} from "redux";
@@ -17,21 +17,19 @@ let mapStateToProps = (state) => {
     }
 };
 
-let mapDispatchToProps = (dispatch) => {
-    return {
-        sendMsg: () => {
-            dispatch(sendMsgActionCreator())
-        },
-        updateMsg: (msgText) => {
-            dispatch(updateMsgTextActionCreator(msgText))
-        }
 
+class DialogsContainer extends React.Component {
+    handleOnSubmit(values){
+        this.props.sendMsg(values.newMsgText)
     }
-};
 
+    render(){
+        return <Dialogs msgSendSuccessfulReset={this.props.msgSendSuccessfulReset} onSubmit={this.handleOnSubmit} {...this.props}/>
+    }
+}
 
 
 export default compose(
-    connect(mapStateToProps, mapDispatchToProps),
+    connect(mapStateToProps, {sendMsg, msgSendSuccessfulReset}),
     withAuthHoc
-)(Dialogs);
+)(DialogsContainer);
