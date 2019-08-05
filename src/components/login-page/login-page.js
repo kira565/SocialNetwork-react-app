@@ -30,6 +30,9 @@ const LoginForm = (props) => {
         <div className='row'>
             <div className='col-sm-8 offset-2'>
                 <form onSubmit={props.handleSubmit}>
+                    {props.error && <div className="alert alert-danger" role="alert">
+                        {props.error}
+                    </div>}
                         <Field validate={[required, email]} label={"Email"} name={'login'} id={'InputEmail1'} component={renderField} type={'text'}
                                className="form-control"/>
                         <Field validate={required} label={"Password"} name={'password'} id="InputPassword1" component={renderField} type={'password'}

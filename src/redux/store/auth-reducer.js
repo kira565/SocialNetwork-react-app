@@ -1,4 +1,5 @@
 import {authAPI} from "../../api/api";
+import {stopSubmit} from 'redux-form'
 
 /**
  * Created by Kira on 04.06.2019.
@@ -69,7 +70,9 @@ export const loginUser = (email, password, rememberMe) => {
                     alert('u got a capcha. Coming soon, pls use for re-login https://social-network.samuraijs.com')
                 }
                 if (data.resultCode === 1) {
-                    alert('invalid request')
+                    let message = data.messages.length > 0 ? data.messages[0] : 'Something went wrong';
+                    let action = stopSubmit("login", {_error: message});
+                    dispatch(action);
                 }
             })
     }
