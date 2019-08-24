@@ -4,15 +4,16 @@
 import React from 'react';
 import Header from "./Header";
 import {connect} from 'react-redux'
-import {logoutUser} from "../../redux/store/auth-reducer";
+import {logoutUser} from "../../redux/store/auth/auth-reducer";
+import {getUserAuth, getUserEmail, getUserId, getUserLogin} from "../../redux/store/auth/auth-selectors";
 
 
 
 let MapStateToProps = (state) => ({
-    userId: state.userAuth.userId,
-    userLogin: state.userAuth.login,
-    userEmail: state.userAuth.email,
-    isAuth: state.userAuth.isAuth
+    userId: getUserId(state),
+    userLogin: getUserLogin(state),
+    userEmail: getUserEmail(state),
+    isAuth: getUserAuth(state)
 });
 
 

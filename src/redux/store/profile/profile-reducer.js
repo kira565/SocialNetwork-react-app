@@ -1,4 +1,4 @@
-import {profileAPI} from "../../api/api";
+import {profileAPI} from "../../../api/api";
 /**
  * Created by Kira on 29.05.2019.
  */

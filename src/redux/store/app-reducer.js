@@ -1,7 +1,7 @@
 /**
  * Created by Kira on 04.06.2019.
  */
-import {getUserAuthData} from "./auth-reducer";
+import {getUserAuthData} from "./auth/auth-reducer";
 
 const INITIALIZED_SUCCESS = 'INITIALIZED_SUCCESS';
 

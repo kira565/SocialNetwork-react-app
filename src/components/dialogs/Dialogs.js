@@ -31,12 +31,10 @@ const ReduxDialogElement = reduxForm({
 
 const Dialogs = (props) => {
 
-    let state = props.dialogsPage;
-
-    let dialogsElemets = state.userData.map((el) => {
+    let dialogsElemets = props.userData.map((el) => {
         return <Dialog user_name={el.name} key={el.id} user_id={el.id}/>
     });
-    let messagesElements = state.messageData.map((el) => {
+    let messagesElements = props.messageData.map((el) => {
         return <Message message_text={el.text} key={el.id}/>
     });
 

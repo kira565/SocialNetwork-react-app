@@ -2,16 +2,16 @@
  * Created by Kira on 29.05.2019.
  */
 import {createStore, combineReducers} from "redux";
-import profileReducer from './profile-reducer'
-import dialogsReducer from './dialogs-reducer'
+import profileReducer from './profile/profile-reducer'
+import dialogsReducer from './dialogs/dialogs-reducer'
 import sidebarReducer from './sidebar-reducer'
 import userReducer from './users/users-reducer'
-import authReducer from "./auth-reducer";
+import authReducer from "./auth/auth-reducer";
 import thunkMiddleware from 'redux-thunk'
 import applyMiddleware from "redux/src/applyMiddleware";
 import { reducer as formReducer } from 'redux-form'
-import {POST_ADDED_SUCCESSFUL_RESET} from "./profile-reducer";
-import {MSG_SEND_SUCCESSFUL_RESET} from "./dialogs-reducer";
+import {POST_ADDED_SUCCESSFUL_RESET} from "./profile/profile-reducer";
+import {MSG_SEND_SUCCESSFUL_RESET} from "./dialogs/dialogs-reducer";
 import appReducer from "./app-reducer";
 
 let reducers = combineReducers({

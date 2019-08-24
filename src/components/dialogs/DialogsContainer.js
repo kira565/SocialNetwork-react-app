@@ -4,16 +4,18 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
 import Dialogs from './Dialogs'
-import {msgSendSuccessfulReset, sendMsg} from "../../redux/store/dialogs-reducer";
+import {msgSendSuccessfulReset, sendMsg} from "../../redux/store/dialogs/dialogs-reducer";
 import {connect} from "react-redux";
 import {withAuthHoc} from "../../hoc/withAuthHoc";
 import {compose} from "redux";
+import {getMessageData, getUserData} from "../../redux/store/dialogs/dialogs-selectors";
 
 
 
 let mapStateToProps = (state) => {
     return {
-        dialogsPage: state.dialogsPage,
+        userData: getUserData(state),
+        messageData: getMessageData(state)
     }
 };
 

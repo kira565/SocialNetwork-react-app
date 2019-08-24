@@ -5,7 +5,7 @@ import React from 'react'
 import s from './ProfileInfo.module.css'
 import Preloader from "../../common/preloader/Preloader";
 import noavatar from '../../../etc/img/noavatar.png'
-import ProfileStatus from "./profile_status/ProfileStatus";
+import ProfileStatusHook from "./profile_status/ProfileStatusHook";
 
 
 const ProfileInfo = (props) => {
@@ -31,8 +31,8 @@ const ProfileInfo = (props) => {
                     <div className={s.user_container}>
                         <div className={s.user_name}><h3>{props.profile.fullName}</h3></div>
                         <div className={s.user_status}>
-                            <ProfileStatus userId={props.userId}
-                                           AnotherUserId={props.AnotherUserId}
+                            <ProfileStatusHook userId={props.userId}
+                                           AnotherUserId={props.anotherUserId}
                                            status={props.status}
                                            updateStatus={props.updateStatus}
                             />

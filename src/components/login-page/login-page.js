@@ -2,7 +2,7 @@ import React from 'react'
 import './login-page.module.css'
 import {Field, reduxForm} from 'redux-form'
 import {connect} from 'react-redux'
-import {loginUser} from "../../redux/store/auth-reducer";
+import {loginUser} from "../../redux/store/auth/auth-reducer";
 import {Redirect} from "react-router-dom";
 import style from "./login-page.module.css"
 

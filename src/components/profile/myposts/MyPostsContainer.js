@@ -4,15 +4,16 @@
 import React from "react";
 import './MyPosts.module.css'
 import {connect} from "react-redux";
-import {addPost, postAddedSuccessful} from "../../../redux/store/profile-reducer";
+import {addPost, postAddedSuccessful} from "../../../redux/store/profile/profile-reducer";
 import MyPosts from "./MyPosts";
+import {getPostData} from "../../../redux/store/profile/profile-selectors";
 
 
 
 
 let mapStateToProps = (state) => {   // props
     return {
-        postData: state.profilePage.postData,
+        postData: getPostData(state),
     }
 };
 class MyPostsContainer extends React.Component {
