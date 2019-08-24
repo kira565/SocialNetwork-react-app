@@ -10,26 +10,13 @@ import {compose} from "redux";
 import {
     getCurrentPage, getFetching, getFollowingInProgress,
     getTotalPageSize,
-    getTotalUserCount,
-    getUsersPages
+    getTotalUserCount, getUsersPage,
 } from "../../redux/store/users/users-selectors";
 
 
-/*
 let mapStateToProps = (state) => {
     return {
-        usersPage: state.usersPage.userData,
-        totalUserCount: state.usersPage.totalUserCount,
-        totalPageSize: state.usersPage.totalPageSize,
-        currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching,
-        isFollowingInProgress: state.usersPage.isFollowingInProgress,
-    }
-};
-*/
-let mapStateToProps = (state) => {
-    return {
-        usersPage: getUsersPages(state),
+        usersPage: getUsersPage(state),
         totalUserCount: getTotalUserCount(state),
         totalPageSize: getTotalPageSize(state),
         currentPage: getCurrentPage(state),

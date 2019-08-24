@@ -1,6 +1,13 @@
-export const getUsersPages = (state) => {
+import {createSelector} from "reselect";
+
+const getUsersPagesSelector = (state) => {
     return state.usersPage.userData;
 };
+export const getUsersPage = createSelector(getUsersPagesSelector, (users) => { //Тестовый реселлект и фейковый фильтр
+   return users.filter(u => true)
+});
+
+
 export const getTotalUserCount = (state) => {
     return state.usersPage.totalUserCount;
 };
