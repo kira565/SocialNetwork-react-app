@@ -11,7 +11,7 @@ const Users = (props) => {
     }
 
     return <div className={styles["users-block"]}>
-        {props.usersPage.userData.map((el) => {
+        {props.usersPage.map((el) => {
             return <UserItem id={el.id} firstName={el.name} secondName={'el.secondName'}
                              status={el.status} location={'el.location'} avatar={el.photos.small}
                              followed={el.followed}

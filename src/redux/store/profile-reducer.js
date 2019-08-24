@@ -11,11 +11,11 @@ let initialState = {
     profile: null,
     status: null,
     postData: [
-        {id: 1, message: 'Hello, bro?', like_count: 33},
-        {id: 2, message: 'what about cup of rage??', like_count: 55},
-        {id: 3, message: 'flame you hard ha-ha?', like_count: 36},
-        {id: 4, message: 'no likes for you?', like_count: 35},
-        {id: 5, message: 'yo?', like_count: 32},
+        {id: 1, message: 'Hello', like_count: 33},
+        {id: 2, message: 'Hello2', like_count: 55},
+        {id: 3, message: 'Post3', like_count: 36},
+        {id: 4, message: 'Post4', like_count: 35},
+        {id: 5, message: 'Nohomo', like_count: 32},
         {id: 6, message: 'answer?', like_count: 34}
     ],
 };
@@ -49,22 +49,18 @@ export default profileReducer
 
 //redux-thunk
 
-export const getProfile = (userId) => {
-    return (dispatch) => {
+export const getProfile = (userId) => (dispatch) => {
         profileAPI.getUserProfile(userId)
             .then(response => {
                 dispatch(setUsersProfile(response.data));
             });
-    }
 };
 
-export const getStatus = (userId) => {
-    return (dispatch) => {
+export const getStatus = (userId) => (dispatch) =>{
         profileAPI.getUserStatus(userId)
             .then(response => {
                 dispatch(setUserStatus(response.data))
             })
-    }
 };
 
 export const updateStatus = (status) => {
