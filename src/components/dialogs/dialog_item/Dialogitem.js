@@ -7,12 +7,10 @@ import {NavLink} from 'react-router-dom'
 
 const Dialog = (props) => {
     return (
-        <tr>
-            <td className={s.dialog + ' ' + s.active}>
-                <NavLink to={'/dialogs/' + props.user_id} activeClassName={s.activeLink}>
-                    {props.user_name}</NavLink>
-            </td>
-        </tr>
+        <div className={s.dialog__item}>
+            <NavLink to={'/dialogs/' + props.user_id} activeClassName={s.activeLink}>
+                {props.user_name}</NavLink>
+        </div>
     )
 };
 

@@ -49,16 +49,7 @@ const Dialogs = (props) => {
         <div className={s.content}>
             <div className="row">
                 <div className="col-sm-4">
-                    <table className={`table table-hover ${s.custom__table}`}>
-                        <thred>
-                            <tr>
-                                <th scope="col">Name</th>
-                            </tr>
-                        </thred>
-                        <tbody>
                         {dialogsElemets}
-                        </tbody>
-                    </table>
                 </div>
                 <div className="col-sm-6 offset-2">
                     <div className={s.activedialog}>

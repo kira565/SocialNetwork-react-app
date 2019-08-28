@@ -21,7 +21,8 @@ const PostsReduxForm = reduxForm({
 })(AddNewPostForm);
 
 
-const MyPosts = (props) => {
+const MyPosts = React.memo(props => {
+    console.log("RENDERYO");
     let postElements = props.postData.map((el) => {
        return <Post key ={el.id} message = {el.message} like_count = {el.like_count}/>
     });
@@ -40,7 +41,7 @@ const MyPosts = (props) => {
             </div>
         </div>
     )
-};
+});
 
 
 export default MyPosts
