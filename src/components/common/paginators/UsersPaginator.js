@@ -8,9 +8,10 @@ const UsersPaginator = (props) => {
         pages.push(i);
     }
     return  <div className={styles.pages}>
-        {pages.map(el => {
+        {pages.map((el, index) => {
             return <span
-                className={props.currentPage === el && styles.selectedPage}
+                key={index}
+                className={props.currentPage === el ? styles.selectedPage : undefined}
                 onClick={() => {
                     props.onPageChanged(el);
                 }}
