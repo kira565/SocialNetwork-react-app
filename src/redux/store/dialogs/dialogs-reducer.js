@@ -1,8 +1,8 @@
 /**
  * Created by Kira on 29.05.2019.
  */
-const SEND_MSG = 'SEND-MSG';
-export const MSG_SEND_SUCCESSFUL_RESET = 'MSG_SEND_SUCCESSFUL_RESET';
+const SEND_MSG = 'dialogs/SEND-MSG';
+export const MSG_SEND_SUCCESSFUL_RESET = 'dialogs/MSG_SEND_SUCCESSFUL_RESET';
 
 let initialState = {
     userData: [

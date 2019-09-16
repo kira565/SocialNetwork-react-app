@@ -1,15 +1,16 @@
 import {usersAPI} from "../../../api/api";
+import {objUpdater} from "../../../utils/obj-helpers";
 
 /**
  * Created by Kira on 04.06.2019.
  */
-const FOLLOW_USER = 'FOLLOW_USER';
-const UNFOLLOW_USER = 'UNFOLLOW_USER';
-const SET_USERS = 'SET_USERS';
-const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
-const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT';
-const TOGGLE_FETCHER = 'TOGGLE_FETCHER';
-const TOGGLE_FOLLOWING = 'TOGGLE_FOLLOWING';
+const FOLLOW_USER = 'users/FOLLOW_USER';
+const UNFOLLOW_USER = 'users/UNFOLLOW_USER';
+const SET_USERS = 'users/SET_USERS';
+const SET_CURRENT_PAGE = 'users/SET_CURRENT_PAGE';
+const SET_TOTAL_USERS_COUNT = 'users/SET_TOTAL_USERS_COUNT';
+const TOGGLE_FETCHER = 'users/TOGGLE_FETCHER';
+const TOGGLE_FOLLOWING = 'users/TOGGLE_FOLLOWING';
 
 let initialState = {
     userData: [
@@ -69,30 +70,18 @@ let initialState = {
     isFollowingInProgress: []
 };
 
-//Reduxer Logic
+//Reducer Logic
 const userReducer = (state = initialState, action) => {// Initial default value
     switch (action.type) {
         case FOLLOW_USER:
             return {
                 ...state,
-                userData: state.userData.map(el => {
-                    if (el.id === action.id) return {
-                        ...el,
-                        followed: true
-                    };
-                    return el
-                })
+                userData: objUpdater(state.userData, action.id, true)
             };
         case UNFOLLOW_USER:
             return {
                 ...state,
-                userData: state.userData.map(el => {
-                    if (el.id === action.id) return {
-                        ...el,
-                        followed: false
-                    };
-                    return el
-                })
+                userData: objUpdater(state.userData, action.id, false)
             };
         case SET_USERS:
             return {
@@ -142,38 +131,27 @@ export default userReducer
 
 
 //REDUX-THUNK functions
-export const getUsers = (currentPage, totalPageSize) => {
-    return (dispatch) => {
-        dispatch(toggleFetcher(true));
-        usersAPI.getUsers(currentPage, totalPageSize)
-            .then(data => {
-                dispatch(toggleFetcher(false));
-                dispatch(setUsers(data.items));
-                dispatch(setUsersTotalCount(data.totalCount));
-            });
-    }
+export const getUsers = (currentPage, totalPageSize) => async (dispatch) => {
+    dispatch(toggleFetcher(true));
+    let data = await usersAPI.getUsers(currentPage, totalPageSize);
+    dispatch(toggleFetcher(false));
+    dispatch(setUsers(data.items));
+    dispatch(setUsersTotalCount(data.totalCount));
 };
-export const follow = (id) => {
-    return (dispatch) => {
-        dispatch(toggleFollowingProgress(true, id));
-        usersAPI.followUser(id)
-            .then(data => {
-                if (data.resultCode === 0) {
-                    dispatch(followSuccesfull(id))
-                }
-                dispatch(toggleFollowingProgress(false, id));
-            });
-    }
+export const follow = (id) => async (dispatch) => {
+    followUnfollowFlow(id, dispatch, usersAPI.followUser.bind(usersAPI), followSuccesfull)
+
 };
-export const unfollow = (id) => {
-    return (dispatch) => {
-        dispatch(toggleFollowingProgress(true, id));
-        usersAPI.unfollowUser(id)
-            .then(data => {
-                if (data.resultCode === 0) {
-                    dispatch(unfollowSuccessfull(id))
-                }
-                dispatch(toggleFollowingProgress(false, id));
-            });
+export const unfollow = (id) => async (dispatch) => {
+    followUnfollowFlow(id, dispatch, usersAPI.unfollowUser.bind(usersAPI), unfollowSuccessfull)
+};
+
+
+const followUnfollowFlow = async (id, dispatch, apiMethod, actionCreator) => {
+    dispatch(toggleFollowingProgress(true, id));
+    let data = await apiMethod(id);
+    if (data.resultCode === 0) {
+        dispatch(actionCreator(id))
     }
+    dispatch(toggleFollowingProgress(false, id));
 };

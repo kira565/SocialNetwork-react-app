@@ -1,14 +1,10 @@
 import React from 'react'
 import styles from './Users.module.css'
 import UserItem from './user_item/User-item'
+import UsersPaginator from "../common/paginators/UsersPaginator";
 
 const Users = (props) => {
 
-    let pageCount = Math.ceil(props.totalUserCount / props.totalPageSize); // Округляем имеющиеся страницы к большему.
-    let pages = [];
-    for (let i = 1; i <= pageCount; i++) {
-        pages.push(i);
-    }
 
     return <div className={styles["users-block"]}>
         {props.usersPage.map((el) => {
@@ -19,16 +15,11 @@ const Users = (props) => {
                              toggleFollowingProgress = {props.toggleFollowingProgress} isFollowingInProgress={props.isFollowingInProgress}
             />
         })}
-        <div className={styles.pages}>
-            {pages.map(el => {
-                return <span
-                    className={props.currentPage === el && styles.selectedPage}
-                    onClick={() => {
-                        props.onPageChanged(el);
-                    }}
-                >{`${el} `}</span>
-            })}
-        </div>
+       <UsersPaginator totalUserCount={props.totalUserCount}
+                       totalPageSize={props.totalPageSize}
+                       currentPage={props.currentPage}
+                       onPageChanged={props.onPageChanged}
+       />
     </div>
 };
 

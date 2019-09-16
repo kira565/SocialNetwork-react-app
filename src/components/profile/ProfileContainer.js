@@ -21,15 +21,16 @@ let MapStateToProps = (state) =>({
 class ProfileContainer extends React.Component{
 
     componentDidMount(){
-        let userId = this.props.match.params.userId;
-        if (!userId) {
-            userId = this.props.userId;
-            if (!userId) {
-                this.props.history.push("/login");
+        let {match, userId, history, getProfile, getStatus} = this.props;
+        let currentUserId = match.params.userId;
+        if (!currentUserId) {
+            currentUserId = userId;
+            if (!currentUserId) {
+                history.push("/login");
             }
         }
-        this.props.getProfile(userId);
-        this.props.getStatus(userId)
+        getProfile(currentUserId);
+        getStatus(currentUserId)
     }
 
     render() {

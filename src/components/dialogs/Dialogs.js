@@ -30,18 +30,19 @@ const ReduxDialogElement = reduxForm({
 })(dialogElement);
 
 const Dialogs = (props) => {
+    let {userData, messageData, sendMsg, msgSendSuccessfulReset} = props;
 
-    let dialogsElemets = props.userData.map((el) => {
+    let dialogsElemets = userData.map((el) => {
         return <Dialog user_name={el.name} key={el.id} user_id={el.id}/>
     });
-    let messagesElements = props.messageData.map((el) => {
+    let messagesElements = messageData.map((el) => {
         return <Message message_text={el.text} key={el.id}/>
     });
 
 
     let onSendMsg = (text) => {
-        props.sendMsg(text.newMsgText);
-        props.msgSendSuccessfulReset()
+        sendMsg(text.newMsgText);
+        msgSendSuccessfulReset()
     };
 
 

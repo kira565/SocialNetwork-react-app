@@ -10,15 +10,16 @@ import ProfileInfo from './profile_info/ProfileInfo'
 
 
 const Profile = (props) => {
+    let {updateStatus, userId, anotherUserId, status, profile, store} = props;
     return (
         <div className={p.content}>
-            <ProfileInfo updateStatus={props.updateStatus}
-                         userId = {props.userId}
-                         AnotherUserId={props.anotherUserId}
-                         status={props.status}
-                         profile={props.profile}/>
+            <ProfileInfo updateStatus={updateStatus}
+                         userId = {userId}
+                         AnotherUserId={anotherUserId}
+                         status={status}
+                         profile={profile}/>
             <MyPostsContainer
-                store = {props.store}
+                store = {store}
             />
         </div>
     )

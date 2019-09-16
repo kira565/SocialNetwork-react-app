@@ -25,13 +25,13 @@ const renderField = ({input, label, type, meta: {touched, error, warning}}) => {
     </div>
 };
 
-const LoginForm = (props) => {
+const LoginForm = ({handleSubmit, error}) => {
     return <div className={style.login__form}>
         <div className='row'>
             <div className='col-sm-8 offset-2'>
-                <form onSubmit={props.handleSubmit}>
-                    {props.error && <div className="alert alert-danger" role="alert">
-                        {props.error}
+                <form onSubmit={handleSubmit}>
+                    {error && <div className="alert alert-danger" role="alert">
+                        {error}
                     </div>}
                         <Field validate={[required, email]} label={"Email"} name={'login'} id={'InputEmail1'} component={renderField} type={'text'}
                                className="form-control"/>
@@ -56,14 +56,19 @@ const LoginForm = (props) => {
 
 };
 
+
+
 const LoginReduxForm = reduxForm({
     form: 'login'
 })(LoginForm);
 
 
+
 let mapStateToProps = (state) => ({
     isAuth: state.userAuth.isAuth
 });
+
+
 
 class LoginPage extends React.Component {
 
@@ -71,7 +76,7 @@ class LoginPage extends React.Component {
         if (!this.props.isAuth) {
             this.props.loginUser(formData.login, formData.password, formData.rememberMe)
         }
-        else alert('you are already logged in')
+        else alert('you\'ve been already logged in')
     };
 
     render() {
