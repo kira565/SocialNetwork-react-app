@@ -14,18 +14,21 @@ import {connect} from 'react-redux'
 import {initializeApp} from "./redux/store/app-reducer";
 import Preloader from "./components/common/preloader/Preloader";
 import {Route, withRouter} from "react-router-dom";
+import store from "./redux/store/redux-store";
+import {BrowserRouter} from 'react-router-dom'
+import {Provider} from 'react-redux'
 
 let mapStateToProps = (state) => ({
     initialized: state.app.initialized
 });
 
 class App extends React.Component {
-    componentDidMount(){
+    componentDidMount() {
         this.props.initializeApp();
     }
 
-    render(){
-        if (!this.props.initialized){
+    render() {
+        if (!this.props.initialized) {
             return <Preloader preType="init"/>
         }
 
@@ -33,20 +36,20 @@ class App extends React.Component {
             <>
                 <section className="header__wrapper">
                     <div className="container">
-                        <HeaderContainer />
+                        <HeaderContainer/>
                     </div>
                 </section>
                 <section className="main__wrapper">
                     <div className="container main">
                         <div className="row">
                             <div className="col-sm-2">
-                                <Navbar />
+                                <Navbar/>
                             </div>
                             <div className="col-sm-9 offset-1">
                                 <div className="app-wrapper-content">
-                                    <Route render={() => <DialogsContainer/> } path='/dialogs'/>
-                                    <Route render={() => <ProfileContainer/> } path='/profile/:userId?'/>
-                                    <Route render={()=> <UsersContainer/>} path={'/users'}/>
+                                    <Route render={() => <DialogsContainer/>} path='/dialogs'/>
+                                    <Route render={() => <ProfileContainer/>} path='/profile/:userId?'/>
+                                    <Route render={() => <UsersContainer/>} path={'/users'}/>
                                     <Route component={Music} path={'/music'}/>
                                     <Route component={News} path={'/news'}/>
                                     <Route component={Settings} path={'/settings'}/>
@@ -62,6 +65,18 @@ class App extends React.Component {
 }
 
 
-export default compose(
+const AppContainer = compose(
     withRouter,
     connect(mapStateToProps, {initializeApp}))(App);
+
+const SocialNetworkApp = () => {
+    return (
+        <BrowserRouter>
+            <Provider store={store}>
+                <AppContainer/>
+            </Provider>
+        </BrowserRouter>
+    )
+};
+
+export default SocialNetworkApp

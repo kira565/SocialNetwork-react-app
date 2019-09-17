@@ -1,14 +1,13 @@
 /**
  * Created by Kira on 29.05.2019.
  */
-import {createStore, combineReducers} from "redux";
+import {createStore, combineReducers, compose, applyMiddleware} from "redux";
 import profileReducer from './profile/profile-reducer'
 import dialogsReducer from './dialogs/dialogs-reducer'
-import sidebarReducer from './sidebar-reducer'
+//import sidebarReducer from './sidebar-reducer'
 import userReducer from './users/users-reducer'
 import authReducer from "./auth/auth-reducer";
 import thunkMiddleware from 'redux-thunk'
-import applyMiddleware from "redux/src/applyMiddleware";
 import { reducer as formReducer } from 'redux-form'
 import {POST_ADDED_SUCCESSFUL_RESET} from "./profile/profile-reducer";
 import {MSG_SEND_SUCCESSFUL_RESET} from "./dialogs/dialogs-reducer";
@@ -19,7 +18,7 @@ let reducers = combineReducers({
     profilePage: profileReducer,
     dialogsPage: dialogsReducer,
     usersPage: userReducer,
-    sidebar: sidebarReducer,
+    //sidebar: sidebarReducer,
     userAuth: authReducer,
     form: formReducer.plugin({
         ProfileAddNewPostForm: (state, action) => {
@@ -41,9 +40,8 @@ let reducers = combineReducers({
     })
 });
 
-let store = createStore(reducers, applyMiddleware(thunkMiddleware));
-
-
-window.store = store;
+const composeEnhances = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(reducers, composeEnhances(applyMiddleware(thunkMiddleware)));
+window.__store__ = store;
 
 export default store
