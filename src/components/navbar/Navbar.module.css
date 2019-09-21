@@ -2,13 +2,22 @@
     padding-left: 25px;
     font-size: 30px;
     margin-top: 10px;
+    padding-bottom: 5%;
+    padding-top: 5%;
 }
 .item {
     display: flex;
     flex-direction: row;
 }
+@media (max-width: 767px) {
+    .nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+}
 .item span {
-    margin-right: 5px;
+    margin-right: 15px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -17,18 +26,17 @@
     width: 25px;
     height: 25px;
 }
-.item a:active,
-.item a {
+.item:active,
+.item .text {
     color: cornflowerblue;
-    text-decoration: none;
     font-family: 'Patua One', cursive;
 }
 
-.item a:hover {
+.item:hover {
     text-decoration: none;
-    opacity: 0.7%;
+    opacity: 0.7;
 }
-.item a.activeLink {
-    color: midnightblue;
+.activeLink .text {
+    color: crimson;
     text-decoration: none;
 }

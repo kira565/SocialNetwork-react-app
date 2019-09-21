@@ -1,45 +1,39 @@
 .main_information {
     background-color: white;
-    margin-bottom: 10px;
-    padding-bottom: 30px;
-    margin-top: 10px;
-    border-radius: 5px;
+    margin-bottom: 5%;
+    padding-bottom: 15%;
+    margin-top: 5%;
+    padding-top: 5%;
+    border-radius: 1%;
     -webkit-box-shadow: 3px 3px 5px 0 rgba(50, 50, 50, 0.75);
     -moz-box-shadow:    3px 3px 5px 0 rgba(50, 50, 50, 0.75);
     box-shadow:         3px 3px 5px 0 rgba(50, 50, 50, 0.75);
 }
+
 .user_photo_container {
-   padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 10%;
 }
-.user_photo img{
-    height: 250px;
+.user_photo_container img{
     width: 250px;
-}
-.user_photo {
-    margin: 15px 15px 15px 45px;
-}
-.user_container {
-    margin-top: 15px;
-}
-.user_status {
-    font-style: italic;
+    height: 250px;
 }
 
-.header__text {
-    position: absolute;
-    top: 29px;
-    background: #fff;
-    padding: 0 10px;
-    color: darkgrey;
-    font-style: italic;
-    margin-left: -10px;
+.user_description {
+    padding: 5%;
+}
+.user_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.user_status {
+    padding-bottom:  2%;
+    color: lightgrey;
 }
 .header__line {
-    position: relative;
-    padding-top: 27px;
-    padding-right: 25px;
-}
-.user_contacts__header {
-    color: cornflowerblue;
-    margin-right: 3px;
+    border-top: 0.5px solid lightgrey;
 }

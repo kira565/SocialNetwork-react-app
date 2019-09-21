@@ -1,5 +1,6 @@
 .content {
-    margin-bottom: 25px;
+    margin-bottom: 10%;
+    padding: 5%;
     background-color: white;
     border-radius: 5px;
     -webkit-box-shadow: 3px 3px 5px 0 rgba(50, 50, 50, 0.75);
@@ -17,20 +18,14 @@
     color: darkred;
 
 }
-.dialogs, .activedialog {
-    margin-top: 35px;
-    margin-right: 35px;
-}
+
 .addmsg {
-    margin-top: 50px;
+    padding-top: 5%;
 }
 .msgbtn {
-    margin-top: 20px;
+
 }
 .custom__btn {
     background-color: cornflowerblue;
     width: 100px;
-}
-.custom__table {
-    margin: 0 25px 25px 25px;
 }

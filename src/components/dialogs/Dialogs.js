@@ -49,11 +49,13 @@ const Dialogs = (props) => {
     return (
         <div className={s.content}>
             <div className="row">
-                <div className="col-sm-4">
+                <div className="col-4 col-sm-4">
+                    <div className={s.user_list}>
                         {dialogsElemets}
+                    </div>
                 </div>
-                <div className="col-sm-6 offset-2">
-                    <div className={s.activedialog}>
+                <div className="col-8 col-sm-6 offset-sm-2">
+                    <div className={s.active_dialog}>
                         <div className={s.messages}>
                             {messagesElements}
                         </div>

@@ -45,7 +45,7 @@ class App extends React.Component {
                             <div className="col-sm-2">
                                 <Navbar/>
                             </div>
-                            <div className="col-sm-9 offset-1">
+                            <div className="col-12 col-sm-9 offset-sm-1">
                                 <div className="app-wrapper-content">
                                     <Route render={() => <DialogsContainer/>} path='/dialogs'/>
                                     <Route render={() => <ProfileContainer/>} path='/profile/:userId?'/>
@@ -71,7 +71,7 @@ const AppContainer = compose(
 
 const SocialNetworkApp = () => {
     return (
-        <BrowserRouter>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
             <Provider store={store}>
                 <AppContainer/>
             </Provider>

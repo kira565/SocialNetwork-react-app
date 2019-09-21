@@ -28,7 +28,7 @@ const renderField = ({input, label, type, meta: {touched, error, warning}}) => {
 const LoginForm = ({handleSubmit, error}) => {
     return <div className={style.login__form}>
         <div className='row'>
-            <div className='col-sm-8 offset-2'>
+            <div className='col-12 col-sm-8 offset-sm-2'>
                 <form onSubmit={handleSubmit}>
                     {error && <div className="alert alert-danger" role="alert">
                         {error}

@@ -7,6 +7,7 @@ const ADD_POST = 'profile/ADD-POST';
 const SET_USERS_PROFILE = 'profile/SET_USERS_PROFILE';
 const SET_USER_STATUS = 'profile/SET_USER_STATUS';
 const DELETE_POST = 'profile/DELETE_POST';
+const SAVE_PHOTO_SUCCESS = 'profile/SAVE_PHOTO_SUCCESS';
 export const POST_ADDED_SUCCESSFUL_RESET = 'profile/POST_ADDED_SUCCESSFUL_RESET';
 
 let initialState = {
@@ -45,6 +46,14 @@ const profileReducer = (state = initialState, action) => {// Initial default val
                 postData: state.postData.filter(post => post.id !== action.postId)
             }
         }
+        case SAVE_PHOTO_SUCCESS:
+            return {
+                ...state,
+                profile: {
+                    ...state.profile,
+                    photos: action.photoFile
+                }
+            };
         default:
             return state;
     }
@@ -54,9 +63,19 @@ export const deletePost = (postId) => ({type: DELETE_POST, postId});
 export const setUsersProfile = (profile) => ({type: SET_USERS_PROFILE, profile});
 export const setUserStatus = (status) => ({type: SET_USER_STATUS, status});
 export const postAddedSuccessful = () => ({type: POST_ADDED_SUCCESSFUL_RESET});
+export const savePhotoSuccess = (photoFile) => ({type: SAVE_PHOTO_SUCCESS, photoFile});
 export default profileReducer
 
 //redux-thunk
+
+export const savePhoto = (file) => async (dispatch) => {
+    let response = await profileAPI.savePhoto(file);
+
+    if(response.data.resultCode === 0){
+        dispatch(savePhotoSuccess(response.data.data.photos));
+    }
+};
+
 
 export const getProfile = (userId) => async (dispatch) => {
     let response = await profileAPI.getUserProfile(userId);
