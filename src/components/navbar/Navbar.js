@@ -37,7 +37,7 @@ const Navbar = () => {
             </NavLink>
             <NavLink className={s.item} to="/music" activeClassName={s.activeLink}>
                 <span className={'icon'}><img alt={'icon_navbar'} src={music}/></span>
-                <span className={`d-none d-md-block ${s.text}`}>Misic</span>
+                <span className={`d-none d-md-block ${s.text}`}>Music</span>
             </NavLink>
             <NavLink className={s.item} to="/settings" activeClassName={s.activeLink}>
                 <span className={'icon'}><img alt={'icon_navbar'} src={settings}/></span>
