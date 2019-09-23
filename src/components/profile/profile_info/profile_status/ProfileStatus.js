@@ -19,7 +19,7 @@ const ProfileStatus = (props) => {
         setStatus(e.target.value)
     };
 
-    if (!props.anotherUserId) return <div>
+    if (props.isOwner) return <div>
         {
             editMode
                 ? <div>

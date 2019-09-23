@@ -17,6 +17,8 @@ import {Route, withRouter} from "react-router-dom";
 import store from "./redux/store/redux-store";
 import {BrowserRouter} from 'react-router-dom'
 import {Provider} from 'react-redux'
+//import Jobs from "./components/jobs/Jobs";
+import JobsContainer from "./components/jobs/JobsContainer";
 
 let mapStateToProps = (state) => ({
     initialized: state.app.initialized
@@ -52,6 +54,7 @@ class App extends React.Component {
                                     <Route render={() => <UsersContainer/>} path={'/users'}/>
                                     <Route component={Music} path={'/music'}/>
                                     <Route component={News} path={'/news'}/>
+                                    <Route render={() => <JobsContainer/>} path={'/jobs'}/>
                                     <Route component={Settings} path={'/settings'}/>
                                     <Route render={() => <LoginPage/>} path={'/login'}/>
                                 </div>

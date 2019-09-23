@@ -12,6 +12,7 @@ import { reducer as formReducer } from 'redux-form'
 import {POST_ADDED_SUCCESSFUL_RESET} from "./profile/profile-reducer";
 import {MSG_SEND_SUCCESSFUL_RESET} from "./dialogs/dialogs-reducer";
 import appReducer from "./app-reducer";
+//import jobsReducer from "./jobs/jobs-reducer";
 
 let reducers = combineReducers({
     app: appReducer,
@@ -20,6 +21,7 @@ let reducers = combineReducers({
     usersPage: userReducer,
     //sidebar: sidebarReducer,
     userAuth: authReducer,
+    //jobsPage: jobsReducer,
     form: formReducer.plugin({
         ProfileAddNewPostForm: (state, action) => {
             switch (action.type){

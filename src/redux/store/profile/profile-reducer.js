@@ -1,4 +1,5 @@
 import {profileAPI} from "../../../api/api";
+import {stopSubmit} from "redux-form";
 
 /**
  * Created by Kira on 29.05.2019.
@@ -81,6 +82,18 @@ export const getProfile = (userId) => async (dispatch) => {
     let response = await profileAPI.getUserProfile(userId);
     dispatch(setUsersProfile(response.data));
 
+};
+export const submitProfile = (formData) => async (dispatch, getState) => {
+    const userId = getState().userAuth.userId;
+    let response = await profileAPI.submitProfile(formData);
+    if(response.data.resultCode === 0){
+       dispatch(getProfile(userId));
+
+    } else {
+        let message = response.data.messages.length > 0 ? response.data.messages[0] : 'Incorrect input';
+        dispatch(stopSubmit("profile", {_error: message}));
+        return Promise.reject(response.data.messages[0])
+    }
 };
 
 export const getStatus = (userId) => async (dispatch) => {

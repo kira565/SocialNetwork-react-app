@@ -9,5 +9,5 @@ export const getUserId = (state) => {
 };
 
 export const getPostData = (state) => {
-  return state.profilePage.postData;
+    return state.profilePage.postData;
 };
