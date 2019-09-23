@@ -2,7 +2,7 @@
     background-color: white;
     margin-bottom: 5%;
     padding-bottom: 15%;
-    margin-top: 5%;
+    margin-top: 3%;
     padding-top: 5%;
     border-radius: 1%;
     -webkit-box-shadow: 3px 3px 5px 0 rgba(50, 50, 50, 0.75);
@@ -11,12 +11,44 @@
 }
 .user_photo_container {
     padding: 10%;
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
 }
-.user_photo_container input {
-    position: absolute;
-    top: 0;
+.user_photo_container label {
+    position: relative;
+    bottom: 0;
+}
+.user_container .custom_upload{
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+.custom_upload input[type="file"] {
+    display: none;
+}
+.custom_upload label {
+    width: 100%;
+
+}
+.btn {
+    width: 100%;
+}
+.custom_upload span {
+    color: white;
+    cursor: pointer;
+    background: rgba(0,0,0,.5);
+    width: 100%;
 }
 
+.user_photo img{
+    max-width: 100%;
+    max-height: 100%;
+}
+.user_description {
+    padding-left: 2%;
+}
 .user_status {
     color: #6c757d;
     padding: 3% 3% 3% 0;
@@ -25,8 +57,8 @@
     border-bottom: 1px solid lightgrey;
 }
 .edit_button_container {
-    float: right;
-    margin: 0 5% 5% 5%;
+    margin: 0 5% 0 5%;
+    text-align: right;
 }
 .edit_button_container button img{
     width: 35px;
@@ -44,7 +76,8 @@
 
 }
 .user_container {
-
+    display: flex;
+    flex-direction: column;
 }
 .looking_job .looking_job__true{
     color: #34ce57;
@@ -58,4 +91,33 @@
 }
 .contact_container {
     padding-left: 5%;
+    display: flex;
+    flex-direction: row;
+ }
+.contact_container .key_contact{
+    width: 25%;
+}
+.contact_container .value_contact{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 50%
+}
+.form_item {
+    display: flex;
+    flex-direction: column;
+}
+.form_item__title {
+
+}
+.form_item__checkbox {
+    display: flex;
+    flex-direction: row;
+}
+.form_item__field input{
+    width: 100%;
+
+}
+.form_item__contacts {
+
 }

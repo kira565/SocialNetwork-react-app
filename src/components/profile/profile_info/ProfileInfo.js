@@ -49,7 +49,15 @@ const ProfileInfo = ({profile, savePhoto, isOwner, userId, status, updateStatus,
                                     : <img src={noavatar} alt='user_av'/>
                             }
                         </div>
-                        {isOwner && isInputShowed && <input type={"file"} onChange={onMainPhotoSelected}/>}
+                        <div className={s.user_change_photo}>
+                            {
+                                isOwner && isInputShowed
+                                && <label className={s.custom_upload}>
+                                    <input type="file" onChange={onMainPhotoSelected}/>
+                                    <span>Upload new Photo</span>
+                                </label>
+                            }
+                        </div>
                     </div>
                 </div>
                 <div className='col-sm-7'>
@@ -110,7 +118,12 @@ const ProfileData = ({profile}) => {
     )
 };
 const Contacts = ({contactKey, contactValue}) => {
-    return <div className={s.contact_container}><b>{contactKey}: </b><a href={contactValue}>{contactValue}</a></div>
+    return (
+        <div className={s.contact_container}>
+            <div className={s.key_contact}><b>{contactKey}: </b></div>
+            <div className={s.value_contact}><a href={contactValue}>{contactValue}</a></div>
+        </div>
+    )
 };
 
 export default ProfileInfo
