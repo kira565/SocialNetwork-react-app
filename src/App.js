@@ -15,7 +15,7 @@ import {initializeApp} from "./redux/store/app-reducer";
 import Preloader from "./components/common/preloader/Preloader";
 import {Route, withRouter} from "react-router-dom";
 import store from "./redux/store/redux-store";
-import {BrowserRouter} from 'react-router-dom'
+import {HashRouter} from 'react-router-dom'
 import {Provider} from 'react-redux'
 //import Jobs from "./components/jobs/Jobs";
 import JobsContainer from "./components/jobs/JobsContainer";
@@ -74,11 +74,11 @@ const AppContainer = compose(
 
 const SocialNetworkApp = () => {
     return (
-        <BrowserRouter basename={process.env.PUBLIC_URL}>
+        <HashRouter>
             <Provider store={store}>
                 <AppContainer/>
             </Provider>
-        </BrowserRouter>
+        </HashRouter>
     )
 };
 

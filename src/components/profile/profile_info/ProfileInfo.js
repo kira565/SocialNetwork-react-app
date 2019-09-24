@@ -72,7 +72,7 @@ const ProfileInfo = ({profile, savePhoto, isOwner, userId, status, updateStatus,
                                 />
                             </div>
                             <div className={s.edit_button_container}>
-                                {!isEditMode && <button onClick={() => {
+                                {isOwner && !isEditMode && <button onClick={() => {
                                     setEditMode(true)
                                 }}><img alt="edit" src={edit}/></button>}
                             </div>
