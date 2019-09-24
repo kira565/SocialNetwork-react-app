@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "326f9ad452ce32d45b937a05102ca796",
+    "revision": "f1d60258520d79ece4c475eb1972f29e",
     "url": "/looking-it-react-app/index.html"
   },
   {
-    "revision": "e80a6a7d738d04d390ba",
+    "revision": "d06a889106becb93eb0b",
     "url": "/looking-it-react-app/static/css/2.22a7d4ef.chunk.css"
   },
   {
-    "revision": "e3a5cbf869e92e27863d",
+    "revision": "44073adb513e5e056f8e",
     "url": "/looking-it-react-app/static/css/main.77176575.chunk.css"
   },
   {
-    "revision": "e80a6a7d738d04d390ba",
-    "url": "/looking-it-react-app/static/js/2.9a3eff37.chunk.js"
+    "revision": "d06a889106becb93eb0b",
+    "url": "/looking-it-react-app/static/js/2.4100f6d4.chunk.js"
   },
   {
-    "revision": "e3a5cbf869e92e27863d",
-    "url": "/looking-it-react-app/static/js/main.ecedfc13.chunk.js"
+    "revision": "44073adb513e5e056f8e",
+    "url": "/looking-it-react-app/static/js/main.183a4786.chunk.js"
   },
   {
     "revision": "7faf6c93cadbf40af069",
