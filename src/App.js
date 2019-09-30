@@ -17,7 +17,6 @@ import {Route, withRouter} from "react-router-dom";
 import store from "./redux/store/redux-store";
 import {HashRouter} from 'react-router-dom'
 import {Provider} from 'react-redux'
-//import Jobs from "./components/jobs/Jobs";
 import JobsContainer from "./components/jobs/JobsContainer";
 
 let mapStateToProps = (state) => ({

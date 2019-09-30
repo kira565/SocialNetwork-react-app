@@ -1,0 +1,101 @@
+.job_item_wrapper {
+    margin-bottom: 20px;
+    border: 2px solid cornflowerblue;
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    background-color: white;
+}
+
+.job_item_wrapper div {
+    padding-bottom: 15px;
+}
+
+.title {
+    font-weight: bold;
+
+}
+
+.category {
+    color: #6c757d;
+
+}
+
+.salary {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.salary_min_max {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.location {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.company {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.img img {
+    width: 35px;
+    height: 35px;
+}
+
+.img {
+    padding-right: 15px;
+}
+
+.show_more {
+    display: flex;
+    flex-direction: row;
+}
+
+.show_more div img {
+    align-self: center;
+}
+
+.show_more button {
+    background: none;
+    border: none;
+    color: cornflowerblue;
+}
+
+.show_more button img {
+    margin-left: 5px;
+}
+
+.show_more button:focus,
+.show_more button:active {
+    outline: none;
+}
+.job_desc {
+    margin-bottom: 15px;
+}
+
+.apply_job a {
+    border: 2px solid #e0a800;
+    padding: 7px;
+    color: #e0a800;
+    border-radius: 5%;
+    text-decoration: none;
+}
+
+.apply_job a:hover {
+    text-decoration: none;
+    color: deepskyblue;
+    border: 2px solid deepskyblue;
+}
+.date {
+    font-style: italic;
+    color: darkgray;
+    float: right;
+}

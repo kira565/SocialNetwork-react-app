@@ -4,7 +4,7 @@
 import React from 'react'
 import s from './Dialogs.module.css'
 import 'bootstrap/dist/css/bootstrap.css'
-import Message from './message_item/Messageitem'
+import Message from './message_item/MessageItem'
 import Dialog from './dialog_item/Dialogitem'
 import {Field, reduxForm} from 'redux-form'
 

@@ -51,7 +51,25 @@ margin: 10px 10px 10px 10px;
 .bottom_bar div:hover{
    opacity: 0.5;
 }
+button,
+button:focus{
+    background: none;
+    border: none;
+    outline: none;
+    color: lightskyblue;
+}
 .like span {
     margin-right: 5px;
     cursor: pointer;
 }
+.user_message button:hover {
+    color: midnightblue;
+
+}
+.user_message button {
+    font-size: 1.2em;
+
+}
+
+
+

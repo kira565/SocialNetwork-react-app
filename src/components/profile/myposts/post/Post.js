@@ -17,21 +17,21 @@ const Post = (props) => {
                     <img alt='user_avatar' src={user_avatar_male}/>
                 </div>
                 <div className={s.user_message}>
-                    <span className={s.user_name}><a href='#'>Username</a></span>
+                    <span className={s.user_name}><button>Username</button></span>
                     <span className={s.message_date}>message_date</span>
                     <span className={s.message_text}>{props.message}</span>
                 </div>
             </div>
             <div className={s.bottom_bar}>
                 <div className={s.like}>
-                    <span><a href="#"><img alt='like' src={like_icon}/></a></span>
+                    <span><button><img alt='like' src={like_icon}/></button></span>
                     <span>{props.like_count}</span>
                 </div>
                 <div className={s.comment}>
-                    <span><a href="#"><img alt='like' src={comment_icon}/></a></span>
+                    <span><button><img alt='like' src={comment_icon}/></button></span>
                 </div>
                 <div className={s.repost}>
-                    <span><a href="#"><img alt='like' src={repost_icon}/></a></span>
+                    <span><button><img alt='like' src={repost_icon}/></button></span>
                 </div>
             </div>
         </div>

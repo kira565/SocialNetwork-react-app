@@ -22,7 +22,6 @@ const PostsReduxForm = reduxForm({
 
 
 const MyPosts = React.memo(props => {
-    console.log("RENDERYO");
     let postElements = props.postData.map((el) => {
        return <Post key ={el.id} message = {el.message} like_count = {el.like_count}/>
     });

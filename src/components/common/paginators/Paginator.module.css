@@ -1,6 +1,7 @@
 .page {
     border: 1px solid lightgray;
     padding: 5px 10px 5px 10px;
+    cursor: pointer;
 }
 .page:hover {
     border: 2px solid cornflowerblue;

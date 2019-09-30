@@ -10,16 +10,15 @@ const instance = axios.create({
 });
 const jobInstance = axios.create({
     baseURL: `http://api.adzuna.com/v1/api/jobs/gb/search/`,
-    withCredentials: true
 });
 export const jobsAPI = {
     API_ID_JOBS: 'b9a52df0',
     API_KEY_JOBS: '49a62c72b81fdb6bbe0c6099db07ae13',
 
-    getAds(currentPage = 1, totalPageSize = 20, language = 'javascript') {
-        return jobInstance.get(`${currentPage}?app_id=${this.API_ID_JOBS}&app_key=${this.API_KEY_JOBS}&results_per_page=${totalPageSize}&what=${language}%20developer&content-type=application/json`)
+    getAds(currentPage = 1, totalPageSize = 20, keyWords, minSalary, maxSalary) {
+        return jobInstance.get(`${currentPage}?app_id=${this.API_ID_JOBS}&app_key=${this.API_KEY_JOBS}&results_per_page=${totalPageSize}&what=${keyWords}%20developer&salary_min=${minSalary}&salary_max=${maxSalary}&content-type=application/json`)
             .then(response => {
-                return response.date
+                return response.data
             })
     }
 };

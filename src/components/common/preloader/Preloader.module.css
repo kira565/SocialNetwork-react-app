@@ -1,11 +1,18 @@
-.preloader_gif {
-    position: absolute;
-    width: 600px;
-    height: 400px;
-    left: 45%;
-    top: 45%;
-}
 .preloader_gif img{
-    height: 150px;
+    position: fixed;
     width: 150px;
+    height: 150px;
+    top: 50%;
+    left: 50%;
+    margin-top: -75px; /* Negative half of height. */
+    margin-left: -75px; /* Negative half of width. */
+}
+.init_preloader_gif img {
+    position: fixed;
+    width: 150px;
+    height: 150px;
+    top: 50%;
+    left: 50%;
+    margin-top: -75px; /* Negative half of height. */
+    margin-left: -75px; /* Negative half of width. */
 }

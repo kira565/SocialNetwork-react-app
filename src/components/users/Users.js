@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './Users.module.css'
 import UserItem from './user_item/User-item'
-import Paginator from "../common/paginators/UsersPaginator";
+import Paginator from "../common/paginators/Paginator";
 
 const Users = (props) => {
 
