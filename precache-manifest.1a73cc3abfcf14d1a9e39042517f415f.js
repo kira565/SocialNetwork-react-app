@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "59b7fccc806b7e49582d2b6221adb092",
+    "revision": "b95ae1b5516f3cb2e1cecc1cf4d2e237",
     "url": "/looking-it-react-app/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/looking-it-react-app/static/css/2.22a7d4ef.chunk.css"
   },
   {
-    "revision": "37c51cd9a31b0b0303a5",
+    "revision": "c4ef4b12e31d58d95eb1",
     "url": "/looking-it-react-app/static/css/main.e986ff60.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/looking-it-react-app/static/js/2.c8934718.chunk.js"
   },
   {
-    "revision": "37c51cd9a31b0b0303a5",
-    "url": "/looking-it-react-app/static/js/main.44793c8f.chunk.js"
+    "revision": "c4ef4b12e31d58d95eb1",
+    "url": "/looking-it-react-app/static/js/main.a3a43e13.chunk.js"
   },
   {
     "revision": "7faf6c93cadbf40af069",
